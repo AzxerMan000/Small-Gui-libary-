@@ -34,7 +34,7 @@ gui:addTab("Main")
 
 ```lua
 
-myGui:addButtonToTab("Main", "Click Me", Color3.fromRGB(150, 150, 150), function()
+gui:addButtonToTab("Main", "Click Me", Color3.fromRGB(150, 150, 150), function()
     print("Clicked!")
 end)
 
