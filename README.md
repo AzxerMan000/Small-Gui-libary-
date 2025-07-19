@@ -14,15 +14,18 @@ local SmallGUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Azxe
 
 ```lua
 
-local SmallGUI = SmallGUI.new("My Small GUI")
+
+
+local gui = SmallGUI.new("My Menu")
+
 ```
 
 ## Creating Tab
 
 ```lua 
 
+gui:addTab("Main")
 
-local main = SmallGUI.new("My Menu")
 
 
 ```
@@ -31,8 +34,8 @@ local main = SmallGUI.new("My Menu")
 
 ```lua
 
-myGui:addButtonToTab("Main", "Reset GUI", Color3.fromRGB(255, 85, 85), function()
-    print("hello world!")
+myGui:addButtonToTab("Main", "Click Me", Color3.fromRGB(150, 150, 150), function()
+    print("Clicked!")
 end)
 
 ```
