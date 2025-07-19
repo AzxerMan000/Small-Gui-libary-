@@ -208,37 +208,7 @@ function SmallGUI:switchTab(tabName)
     
     self.currentTab = tabName
 
-    function SmallGUI:addTab(tabName)
-    -- your addTab implementation creating tabs and containers
-end
-
-function SmallGUI:addButtonToTab(tabName, buttonText, color, callback)
-    if not self.tabs[tabName] then
-        self:addTab(tabName)
-    end
-
-    local container = self.buttonContainers[tabName]
-    if not container then return end
-
-    local button = Instance.new("TextButton")
-    button.Size = UDim2.new(1, -10, 0, 35)
-    button.Position = UDim2.new(0, 5, 0, 0)
-    button.BackgroundColor3 = color or Color3.fromRGB(100, 100, 100)
-    button.Text = buttonText
-    button.Font = Enum.Font.Gotham
-    button.TextSize = 14
-    button.TextColor3 = Color3.new(1, 1, 1)
-    button.BorderSizePixel = 0
-    button.Parent = container
-
-    local corner = Instance.new("UICorner", button)
-    corner.CornerRadius = UDim.new(0, 6)
-
-    if callback then
-        button.MouseButton1Click:Connect(callback)
-    end
-end
-
+    
 function SmallGUI:switchTab(tabName)
     -- your switchTab implementation
     end
