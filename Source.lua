@@ -20,12 +20,13 @@ function SmallGUI.new(windowTitle, size)
     -- Create window
     self.window = Instance.new("Frame", self.gui)
     self.window.Size = self.windowSize
-    self.window.Position = UDim2.new(0.5, -self.windowSize.X.Offset/2, 0.5, -self.windowSize.Y.Offset/2)
+    self.window.Position = UDim2.new(0.5, 0, 0.5, 0)
     self.window.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
     self.window.BorderSizePixel = 0
     self.window.Active = true
     self.window.Draggable = false  -- We’ll handle dragging manually
     Instance.new("UICorner", self.window).CornerRadius = UDim.new(0, 16)
+
     
     -- Title bar
     self.titleBar = Instance.new("Frame", self.window)
