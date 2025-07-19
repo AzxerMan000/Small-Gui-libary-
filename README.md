@@ -20,7 +20,10 @@ local SmallGUI = SmallGUI.new("My Small GUI")
 ## Creating Tab
 
 ```lua 
-SmallGUI:addTab("Example")
+
+
+local main = SmallGUI.new("My Menu")
+
 
 ```
 
@@ -28,8 +31,8 @@ SmallGUI:addTab("Example")
 
 ```lua
 
-SmallGui:addButtonToTab("Example", "Example button", Color3.fromRGB(100, 100, 100), function()
-     print("hello world from example button!")
+myGui:addButtonToTab("Main", "Reset GUI", Color3.fromRGB(255, 85, 85), function()
+    print("hello world!")
 end)
 
 ```
