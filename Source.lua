@@ -173,6 +173,26 @@ function SmallGUI:addTab(tabName)
     tabBtn.MouseButton1Click:Connect(function()
         self:switchTab(tabName)
     end)
+
+    local toggle = Instance.new("TextButton")
+toggle.Size = UDim2.new(1, -10, 0, 30)
+toggle.Position = UDim2.new(0, 0, 0, 45) -- adjust as needed
+toggle.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+toggle.Text = "Toggle: OFF"
+toggle.Font = Enum.Font.Gotham
+toggle.TextSize = 16
+toggle.TextColor3 = Color3.new(1, 1, 1)
+toggle.Parent = self.tabList
+Instance.new("UICorner", toggle).CornerRadius = UDim.new(0, 8)
+
+-- 🟩 Toggle functionality
+local toggled = false
+toggle.MouseButton1Click:Connect(function()
+    toggled = not toggled
+    toggle.Text = toggled and "Toggle: ON" or "Toggle: OFF"
+    -- You can run custom logic here:
+    -- if toggled then ... else ...
+end)
     
     self.tabs[tabName] = {
         button = tabBtn,
