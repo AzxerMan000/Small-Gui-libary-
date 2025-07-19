@@ -4,7 +4,7 @@ SmallGUI.__index = SmallGUI
 
 local Players = game:GetService("Players")
 
-function SmallGUI.new(windowTitle, size)
+function SmallGUI.new(windowTitle)
     local self = setmetatable({}, SmallGUI)
     
     self.player = Players.LocalPlayer
@@ -13,7 +13,7 @@ function SmallGUI.new(windowTitle, size)
     self.gui.ResetOnSpawn = false
     self.gui.Parent = self.player:WaitForChild("PlayerGui")
     
-    self.windowSize = size or UDim2.new(0, 400, 0, 300)
+    self.windowSize = UDim2.new(0, 400, 0, 300)
     self.windowTitle = windowTitle or "SmallGUI"
     
     self.tabs = {}
