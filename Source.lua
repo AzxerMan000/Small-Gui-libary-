@@ -61,6 +61,38 @@ function SmallGUI.new(windowTitle, size)
     self.closeBtn.MouseButton1Click:Connect(function()
         self.gui:Destroy()
     end)
+
+    -- Minimize Button
+self.minimizeBtn = Instance.new("TextButton", self.titleBar)
+self.minimizeBtn.Size = UDim2.new(0, 30, 0, 30)
+self.minimizeBtn.Position = UDim2.new(1, -70, 0, 0)
+self.minimizeBtn.BackgroundColor3 = Color3.fromRGB(255, 200, 0)
+self.minimizeBtn.Text = "_"
+self.minimizeBtn.TextColor3 = Color3.new(1, 1, 1)
+self.minimizeBtn.Font = Enum.Font.GothamBold
+self.minimizeBtn.TextSize = 16
+self.minimizeBtn.BorderSizePixel = 0
+Instance.new("UICorner", self.minimizeBtn).CornerRadius = UDim.new(0, 8)
+
+     -- Minimize Functionality
+self.isMinimized = false
+
+self.minimizeBtn.MouseButton1Click:Connect(function()
+    self.isMinimized = not self.isMinimized
+
+    if self.isMinimized then
+        self.tabList.Visible = false
+        self.buttonFrame.Visible = false
+        self.window.Size = UDim2.new(0, self.window.Size.X.Offset, 0, 40)
+    else
+        self.tabList.Visible = true
+        self.buttonFrame.Visible = true
+        self.window.Size = self.windowSize
+    end
+end)
+        
+
+    
     
     -- Left Tab List
     self.tabList = Instance.new("ScrollingFrame", self.window)
