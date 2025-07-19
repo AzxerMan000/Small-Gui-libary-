@@ -16,7 +16,7 @@ local SmallGUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Azxe
 
 
 
-local gui = SmallGUI.new("My Menu")
+local gui = SmallGUI.new("example")
 
 ```
 
