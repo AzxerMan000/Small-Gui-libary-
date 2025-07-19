@@ -4,6 +4,24 @@ SmallGUI.__index = SmallGUI
 local UserInputService = game:GetService("UserInputService")
 function SmallGUI.new(windowTitle, size)
     local self = setmetatable({}, SmallGUI)
+    local UIS = game:GetService("UserInputService")
+local screenSize = UIS:GetScreenResolution() -- actual device screen resolution
+
+-- base design size (what you originally want at standard resolution)
+local baseWidth, baseHeight = 400, 300
+
+-- calculate scale factor based on screen width (you can also use height or average)
+local scaleFactor = screenSize.X / 1920  -- assuming 1920 is your base design width
+
+-- clamp scaleFactor to reasonable min/max to avoid too small or huge GUIs
+scaleFactor = math.clamp(scaleFactor, 0.5, 2)
+
+-- apply scaled size
+self.windowSize = UDim2.new(0, baseWidth * scaleFactor, 0, baseHeight * scaleFactor)
+
+-- center position using scaled size
+self.window.Position = UDim2.new(0.5, -(baseWidth * scaleFactor)/2, 0.5, -(baseHeight * scaleFactor)/2)
+self.window.Size = self.windowSize
     
     self.player = game:GetService("Players").LocalPlayer
     self.gui = Instance.new("ScreenGui")
